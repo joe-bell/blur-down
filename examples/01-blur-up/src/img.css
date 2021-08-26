@@ -1,0 +1,80 @@
+/* Base
+  =========================================== */
+
+/**
+ * 1. Enforce hardware acceleration
+ * 2. Optional: prevent CLS by defining the aspect ratio up front.
+ *    `--img-aspect-ratio` is set via inline `style`, and determined via the 
+ *    required `width` and `height` props.
+ * 3. Visually hide alt-text
+ */
+.img {
+  --img-blur: 42px;
+  --img-scale: 1.5;
+  --img-transition-duration: 1.2s;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(0); /* [1] */
+  padding-bottom: var(--img-aspect-ratio); /* [2] */
+}
+
+.img__element /* [2] */,
+.img__placeholder {
+  inset: 0;
+  position: absolute;
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+.img__element {
+  font-size: 0; /* [3] */
+  opacity: 0;
+}
+
+/* Variants
+  =========================================== */
+
+/**
+ * "Blur Down"
+ */
+.img--blur-down .img__element,
+.img--blur-down .img__placeholder {
+  filter: blur(var(--img-blur));
+  transform: scale(var(--img-scale));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .img--blur-down .img__element {
+    transition: var(--img-transition-duration) ease;
+    transition-property: filter, opacity, transform;
+    will-change: filter, transform;
+  }
+}
+
+.img--blur-down.is-loaded .img__element {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+}
+
+/**
+ * "Blur Up"
+ */
+.img--blur-up .img__placeholder {
+  filter: blur(var(--img-blur));
+  transform: scale(var(--img-scale));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .img--blur-up .img__element {
+    transition: calc(var(--img-transition-duration) * 2) ease;
+    transition-property: opacity;
+  }
+}
+
+.img--blur-up.is-loaded .img__element {
+  opacity: 1;
+}

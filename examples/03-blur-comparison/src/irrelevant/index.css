@@ -1,0 +1,86 @@
+:root {
+  --space-md: 1rem;
+  --space-sm: 0.5rem;
+}
+
+html,
+blockquote,
+body,
+p,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: Inter var, ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
+    Noto Color Emoji;
+  font-size: 100%;
+  line-height: 1.2;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+a {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 640px;
+  margin: var(--space-md) auto 0 auto;
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.header {
+  display: flex;
+  color: #c05621;
+  background: #fffaf0;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid #fed7aa;
+}
+
+.header__icon {
+  margin-right: 0.75rem;
+}
+
+.layout {
+  display: flex;
+  list-style-type: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.layout__item {
+  width: 100%;
+  text-align: center;
+}
+
+.layout__item + .layout__item {
+  margin-left: var(--space-md);
+}
+
+.layout__item > * + * {
+  margin-top: var(--space-sm);
+}
+
+.layout__title {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.mt-md {
+  margin-top: var(--space-md);
+}
