@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Layout, LayoutItem, LayoutTitle } from "./irrelevant";
-import { Img } from "./Img";
+import { Img } from "./img";
 
 import blurImgSrc from "./assets/blur.jpg";
 
