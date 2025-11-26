@@ -1,39 +1,20 @@
 {
-  "private": true,
   "name": "root",
+  "private": true,
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
-    "build": "pnpm run build --r --stream",
-    "lint": "pnpm run lint --r --stream",
-    "setup": "npm i -g pnpm@6.14.3",
-    "commit": "git-cz"
-  },
-  "engines": {
-    "pnpm": ">=6.14.3"
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
-  },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pnpm run lint && lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*": "prettier --ignore-unknown --write"
+    "build": "pnpm --parallel build",
+    "check": "pnpm --parallel check",
+    "prepare": "pnpm run '/^prepare:.*/'",
+    "prepare:hooks": "git config core.hooksPath .github/hooks",
+    "prettier": "prettier --config .prettierrc.json --ignore-unknown --no-error-on-unmatched-pattern"
   },
   "devDependencies": {
-    "commitizen": "4.2.4",
-    "cz-conventional-changelog": "3.3.0",
-    "husky": "4.3.8",
-    "lint-staged": "11.1.2",
-    "prettier": "2.3.2"
+    "lint-staged": "16.2.6",
+    "prettier": "3.5.3",
+    "prettier-plugin-packagejson": "2.5.19"
+  },
+  "packageManager": "pnpm@10.23.0",
+  "engines": {
+    "node": "22"
   }
 }

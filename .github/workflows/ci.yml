@@ -1,4 +1,4 @@
-name: CI
+name: ci
 
 on:
   push:
@@ -7,20 +7,27 @@ on:
     branches: [main]
 
 jobs:
+  prettier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: ./.github/actions/install
+      - run: pnpm prettier --check .
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Read .nvmrc
-        run: echo ::set-output name=NVMRC::$(cat .nvmrc)
-        id: nvm
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v2.1.5
+      - uses: actions/checkout@v3
         with:
-          node-version: "${{ steps.nvm.outputs.NVMRC }}"
-
-      - run: npm run setup && pnpm install
-      - run: pnpx prettier . --check --ignore-path .gitignore
-      - run: pnpm run build
+          fetch-depth: 0
+      - uses: ./.github/actions/install
+      - run: pnpm build
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: ./.github/actions/install
+      - run: pnpm check

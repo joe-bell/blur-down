@@ -1,9 +1,9 @@
 {
   "name": "02-blur-down",
   "scripts": {
-    "lint": "tsc --noEmit",
-    "start": "vite",
-    "build": "tsc && vite build"
+    "build": "vite build",
+    "check": "tsc --noEmit",
+    "start": "vite"
   },
   "dependencies": {
     "react": "^17.0.0",

@@ -1,6 +1,6 @@
 <p align="center">
   ⚠️ <strong>Disclaimer</strong></br>
-  Please avoid copying any code without <a href="https://joebell.co.uk/blog/loading-images-with-the-blur-down-technique">reading the article</a> in full.<br/>
+  Please avoid copying any code without <a href="https://joebell.studio/blog/loading-images-with-the-blur-down-technique">reading the article</a> in full.<br/>
   This is an <strong>experimental</strong> technique that comes with caveats.
 </p>
 
