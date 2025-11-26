@@ -1,4 +1,3 @@
-import * as React from "react";
 import { Layout, LayoutItem, LayoutTitle } from "./irrelevant";
 import { Img } from "./img";
 

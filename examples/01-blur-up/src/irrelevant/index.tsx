@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export const Layout: React.FC = (props) => (
+export const Layout = ({ children }: { children: React.ReactNode }) => (
   <React.Fragment>
     <header className="container">
       <div className="header">
@@ -17,15 +17,15 @@ export const Layout: React.FC = (props) => (
       </div>
     </header>
     <main className="container">
-      <ul className="layout">{props.children}</ul>
+      <ul className="layout">{children}</ul>
     </main>
   </React.Fragment>
 );
 
-export const LayoutItem: React.FC = (props) => (
-  <li className="layout__item">{props.children}</li>
+export const LayoutItem = ({ children }: { children: React.ReactNode }) => (
+  <li className="layout__item">{children}</li>
 );
 
-export const LayoutTitle: React.FC = (props) => (
-  <p className="layout__title">{props.children}</p>
+export const LayoutTitle = ({ children }: { children: React.ReactNode }) => (
+  <p className="layout__title">{children}</p>
 );

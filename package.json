@@ -11,10 +11,53 @@
   "devDependencies": {
     "lint-staged": "16.2.6",
     "prettier": "3.5.3",
-    "prettier-plugin-packagejson": "2.5.19"
+    "prettier-plugin-packagejson": "2.5.19",
+    "syncpack": "^13.0.4",
+    "typescript": "^5.9.3"
   },
   "packageManager": "pnpm@10.23.0",
   "engines": {
     "node": "22"
+  },
+  "syncpack": {
+    "lintFormatting": false,
+    "lintSemverRanges": false,
+    "customTypes": {
+      "nodeEngine": {
+        "path": "engines.node",
+        "strategy": "version"
+      },
+      "packageManager": {
+        "path": "packageManager",
+        "strategy": "version"
+      }
+    },
+    "versionGroups": [
+      {
+        "label": "Use `workspace:*` protocol when consuming local packages",
+        "dependencies": [
+          "$LOCAL"
+        ],
+        "dependencyTypes": [
+          "dev",
+          "peer",
+          "prod"
+        ],
+        "pinVersion": "workspace:*"
+      },
+      {
+        "label": "Use the root `engines.node` and `packageManager` versions",
+        "dependencies": [
+          "$LOCAL"
+        ],
+        "dependencyTypes": [
+          "nodeEngine",
+          "packageManager"
+        ],
+        "snapTo": [
+          "root"
+        ]
+      }
+    ]
   }
 }
