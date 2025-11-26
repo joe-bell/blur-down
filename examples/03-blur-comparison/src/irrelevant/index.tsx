@@ -9,7 +9,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => (
         </span>
         <p>
           Please avoid copying any code until{" "}
-          <a href="https://joebell.co.uk/blog/loading-images-with-the-blur-down-technique">
+          <a href="https://joebell.studio/blog/loading-images-with-the-blur-down-technique">
             reading the article in full
           </a>
           .
